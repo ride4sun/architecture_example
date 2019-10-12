@@ -24,9 +24,6 @@ class LinearProgressPainter extends CustomPainter {
       this.outline = false})
       : painter = Paint(),
         backgroundPainter = Paint() {
-
-
-
     painter.color = Colors.white;
     backgroundPainter.color = Colors.black;
   }
@@ -35,7 +32,7 @@ class LinearProgressPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     canvas.save();
 
-    //print("PAINTER ANIMATION VALUES: IN: $value ");
+    print("PAINTER ANIMATION VALUES: IN: $value ");
 
     final double width = size.width * value;
 

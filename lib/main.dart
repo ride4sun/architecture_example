@@ -32,17 +32,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
-    myBloc = new MyBloc();
+    _myBloc = new MyBloc();
     //starts the time and sends emit the first stream update
-    myBloc.init();
+    _myBloc.init();
 
     super.initState();
   }
 
-  MyBloc myBloc;
+  MyBloc _myBloc;
   @override
   void dispose() {
-    myBloc.dispose();
+    _myBloc.dispose();
     super.dispose();
   }
 
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //inherited Widget injects the Provider in the Widget tree
       //this allows you to access MyBloc with MyBlocProvider.of(context).
       body: MyBlocProvider(
-        bloc: myBloc,
+        bloc: _myBloc,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
