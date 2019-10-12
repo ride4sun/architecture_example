@@ -5,7 +5,7 @@ import 'package:architecture_example/domain/stream_value.dart';
 
 class MyBloc {
   init() {
-    timer = new Timer.periodic(
+    _timer = new Timer.periodic(
       const Duration(seconds: 1),
       (Timer t) {
         var random = new Random();
@@ -20,7 +20,7 @@ class MyBloc {
     _progress.dispose();
   }
 
-  var timer;
+  var _timer;
 
   ReadStreamValue<double> get progress => _progress;
   final StreamValue<double> _progress =
