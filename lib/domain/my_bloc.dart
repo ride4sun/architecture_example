@@ -2,6 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:architecture_example/domain/stream_value.dart';
+import 'package:logging/logging.dart';
+
+final _log = new Logger('bloc.my_bloc.dart');
 
 class MyBloc {
   init() {

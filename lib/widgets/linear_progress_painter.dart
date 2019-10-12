@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+
+final _log = new Logger('painter.linear_progress_painter.dart');
 
 ///[value] has to be between 0 and 1. With 1 == 100 %
 class LinearProgressPainter extends CustomPainter {
@@ -32,7 +35,7 @@ class LinearProgressPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     canvas.save();
 
-    print("PAINTER ANIMATION VALUES: IN: $value ");
+    _log.finest("PAINTER ANIMATION VALUES: IN: $value ");
 
     final double width = size.width * value;
 

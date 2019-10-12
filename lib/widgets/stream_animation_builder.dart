@@ -1,6 +1,9 @@
 import 'package:animator/animator.dart';
 import 'package:architecture_example/domain/stream_value.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+
+final _log = new Logger('streamAnimationBuilder.dart');
 
 class StreamAnimationBuilder<T extends double> extends StatelessWidget {
   final ReadStreamValue<T> streamValue;
@@ -28,7 +31,8 @@ class StreamAnimationBuilder<T extends double> extends StatelessWidget {
               value == null) {
             return Container();
           } else {
-            print("ANIMATION VALUES: $previousValue , $value");
+            _log.finest(
+                "ANIMATION VALUES IN StreamAnimationBuilder: previous: $previousValue , value: $value");
 
             return Animator(
                 resetAnimationOnRebuild: true,

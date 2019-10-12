@@ -3,6 +3,7 @@ import 'package:architecture_example/domain/my_bloc_provider.dart';
 import 'package:architecture_example/widgets/linear_progress_painter.dart';
 import 'package:architecture_example/widgets/stream_animation_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,6 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
     _myBloc = new MyBloc();
     //starts the time and sends emit the first stream update
     _myBloc.init();
+
+    Logger.root.level = Level.ALL;
+    Logger.root.onRecord.listen(
+      (rec) {
+        print('${rec.sequenceNumber} ${rec.message}');
+      },
+    );
 
     super.initState();
   }
