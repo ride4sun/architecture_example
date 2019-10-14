@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            Row(
+            /*     Row(
               children: <Widget>[
                 Expanded(
                   child: Margins(
@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-            ),
+            ),*/
           ],
         ),
       ),
