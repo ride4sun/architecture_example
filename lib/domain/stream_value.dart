@@ -54,7 +54,7 @@ class StreamValue<T> extends ReadStreamValue<T> {
     if (newValue == null && ignoreNullValues) return;
     if (newValue != _value || updateEvenIfEqual) {
       if (name != null)
-        _log.fine(
+        _log.finest(
             'name: $name: value: ${value.toString()} changed to: ${newValue.toString()}');
       _previousValue = _value;
       _value = newValue;

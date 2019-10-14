@@ -1,6 +1,7 @@
 import 'package:architecture_example/domain/my_bloc.dart';
 import 'package:architecture_example/domain/my_bloc_provider.dart';
 import 'package:architecture_example/widgets/linear_progress_painter.dart';
+import 'package:architecture_example/widgets/margins.dart';
 import 'package:architecture_example/widgets/stream_animation_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
@@ -66,20 +67,144 @@ class _MyHomePageState extends State<MyHomePage> {
       //this allows you to access MyBloc with MyBlocProvider.of(context).
       body: MyBlocProvider(
         bloc: _myBloc,
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(width: 30),
-              Expanded(
-                child: Container(
-                  height: 30,
-                  child: ProgressWidget(),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Margins(
+                    left: 100.0,
+                    right: 50.0,
+                    top: 5,
+                    bottom: 5,
+                    height: 30,
+                    child: ProgressWidget(),
+                  ),
                 ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Margins(
+                    all: 20.0,
+                    height: 5,
+                    child: ProgressWidget(),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: PercentMargins(
+                    right: 20.0,
+                    height: 20,
+                    child: ProgressWidget(),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: PercentMargins(
+                    top: 20,
+                    left: 20.0,
+                    height: 20,
+                    child: ProgressWidget(),
+                  ),
+                ),
+              ],
+            ),
+            Margins(
+              all: 10,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: PercentMargins(
+                      top: 20,
+                      left: 20.0,
+                      right: 20.0,
+                      bottom: 10,
+                      height: 10,
+                      child: ProgressWidget(),
+                    ),
+                  ),
+                ],
               ),
-              Container(width: 30)
-            ],
-          ),
+            ),
+            Margins(
+              all: 10,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: PercentMargins(
+                      all: 30,
+                      height: 10,
+                      child: ProgressWidget(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Margins(
+              all: 10,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: PercentMargins(
+                      right: 50,
+                      height: 10,
+                      child: ProgressWidget(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Margins(
+              all: 10,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: PercentMargins(
+                      left: 50,
+                      height: 10,
+                      child: ProgressWidget(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Margins(
+              all: 10,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: PercentMargins(
+                      all: 40,
+                      height: 10,
+                      child: ProgressWidget(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Margins(
+              all: 10,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: PercentMargins(
+                      bottom: 40,
+                      height: 10,
+                      child: ProgressWidget(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
