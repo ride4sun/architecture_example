@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:rxdart/src/observables/observable.dart';
-import 'package:rxdart/streams.dart';
-import 'package:rxdart/subjects.dart';
+import 'package:rxdart/rxdart.dart';
 
 final _log = new Logger('stream.stream_value.dart');
 

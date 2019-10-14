@@ -2,13 +2,13 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:architecture_example/domain/stream_value.dart';
-import 'package:logging/logging.dart';
+//import 'package:logging/logging.dart';
 
-final _log = new Logger('bloc.my_bloc.dart');
+//final _log = new Logger('bloc.my_bloc.dart');
 
 class MyBloc {
   init() {
-    _timer = new Timer.periodic(
+    Timer.periodic(
       const Duration(seconds: 1),
       (Timer t) {
         var random = new Random();
@@ -22,8 +22,6 @@ class MyBloc {
   dispose() {
     _progress.dispose();
   }
-
-  var _timer;
 
   ReadStreamValue<double> get progress => _progress;
   final StreamValue<double> _progress =
