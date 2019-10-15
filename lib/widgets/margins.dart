@@ -22,10 +22,10 @@ import 'package:flutter/material.dart';
 //            width: width,
 //            height: height,
 //            margin: new EdgeInsets.only(
-//                right: all != null ? all : right,
-//                left: all != null ? all : left,
-//                top: all != null ? all : top,
-//                bottom: all != null ? all : bottom));
+//                right: all ?? right,
+//                left: all ?? left,
+//                top: all ?? top,
+//                bottom: all ?? bottom));
 //}
 
 class Margins extends StatelessWidget {
@@ -54,10 +54,10 @@ class Margins extends StatelessWidget {
         height: height,
         child: child,
         margin: new EdgeInsets.only(
-            right: all != null ? all : right,
-            left: all != null ? all : left,
-            top: all != null ? all : top,
-            bottom: all != null ? all : bottom),
+            right: all ?? right,
+            left: all ?? left,
+            top: all ?? top,
+            bottom: all ?? bottom),
       );
 }
 
