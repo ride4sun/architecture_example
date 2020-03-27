@@ -22,17 +22,17 @@ import 'package:flutter/material.dart';
 class ProgressWidget extends StatelessWidget {
   ProgressWidget(
       {@required this.streamValue,
-      this.animationDuration = const Duration(milliseconds: 250),
+      @required this.durationCallback,
       this.curve = Curves.easeInOut});
 
   final ReadStreamValue<double> streamValue;
-  final Duration animationDuration;
+  final Duration Function() durationCallback;
   final Curve curve;
 
   @override
   Widget build(BuildContext context) => StreamAnimationBuilder<double>(
         streamValue: streamValue,
-        animationDuration: animationDuration,
+        durationCallback: () => durationCallback(),
         curve: curve,
         builder: (value) => CustomPaint(
           painter: LinearProgressPainter(

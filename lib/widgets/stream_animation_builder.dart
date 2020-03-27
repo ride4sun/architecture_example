@@ -8,13 +8,13 @@ final _log = new Logger('streamAnimationBuilder.dart');
 class StreamAnimationBuilder<T extends double> extends StatelessWidget {
   final ReadStreamValue<T> streamValue;
   final Widget Function(T) builder;
-  final Duration animationDuration;
+  final Duration Function() durationCallback;
   final Curve curve;
 
   StreamAnimationBuilder(
       {@required this.streamValue,
       @required this.builder,
-      this.animationDuration = const Duration(milliseconds: 250),
+      @required this.durationCallback,
       this.curve = Curves.easeInOut});
 
   @override
@@ -31,6 +31,9 @@ class StreamAnimationBuilder<T extends double> extends StatelessWidget {
               value == null) {
             return Container();
           } else {
+            Duration duration = durationCallback();
+            _log.finest("Animaion Duration: $duration");
+
             _log.finest(
                 "ANIMATION VALUES IN StreamAnimationBuilder: previous: $previousValue , value: $value");
 
@@ -38,7 +41,7 @@ class StreamAnimationBuilder<T extends double> extends StatelessWidget {
                 resetAnimationOnRebuild: true,
                 tween: Tween<T>(begin: previousValue, end: value),
                 cycles: 1,
-                duration: animationDuration,
+                duration: duration,
                 curve: curve,
                 builder: (anim) => builder(anim.value));
           }

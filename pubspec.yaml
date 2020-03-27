@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   logging: ^0.11.3+2
   rxdart: ^0.22.3
-  animator: 1.0.0+1
+  animator: 1.0.0+5
 
   cupertino_icons: ^0.1.2
 

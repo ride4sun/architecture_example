@@ -2,25 +2,35 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:architecture_example/domain/stream_value.dart';
-//import 'package:logging/logging.dart';
+import 'package:logging/logging.dart';
 
-//final _log = new Logger('bloc.my_bloc.dart');
+final _log = new Logger('bloc.my_bloc.dart');
 
 class MyBloc {
+  Timer _timer;
+
   init() {
-    Timer.periodic(
-      const Duration(seconds: 1),
-      (Timer t) {
-        var random = new Random();
-        //generates a number between 0 and 1.0
-        _progress.value = random.nextDouble() * 100.0;
-      },
-    );
+    _timerCallback(null);
+  }
+
+  void _timerCallback(_) {
+    _timer?.cancel();
+
+    var random = new Random();
+    //generates a number between 0 and 1.0
+    _progress.value = random.nextDouble() * 100.0;
+
+    random = new Random();
+    //generates random for the timer
+    var duration = Duration(milliseconds: random.nextInt(500) + 1000);
+    _log.finest('Model timer update duration: $duration');
+    _timer = Timer.periodic(duration, _timerCallback);
   }
 
   //call dispose when you delete the object
   dispose() {
     _progress.dispose();
+    _timer?.cancel();
   }
 
   ReadStreamValue<double> get progress => _progress;

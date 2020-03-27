@@ -35,7 +35,7 @@ class LinearProgressPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     canvas.save();
 
-    _log.finest("PAINTER ANIMATION VALUES: IN: $value ");
+//    _log.finest("PAINTER ANIMATION VALUES: IN: $value ");
 
     final double width = size.width * value;
 

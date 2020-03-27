@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:architecture_example/domain/my_bloc.dart';
 import 'package:architecture_example/domain/my_bloc_provider.dart';
 import 'package:architecture_example/widgets/margins.dart';
@@ -84,7 +86,10 @@ class ProgressRender extends StatelessWidget {
                   child: ProgressWidget(
                     streamValue: MyBlocProvider.of(context).progress,
                     curve: Curves.bounceOut,
-                    animationDuration: const Duration(milliseconds: 700),
+                    durationCallback: () {
+                      Random random = new Random();
+                      return Duration(milliseconds: random.nextInt(400) + 1000);
+                    },
                   ),
                 ),
               ),
